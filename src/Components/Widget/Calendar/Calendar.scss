@@ -1,0 +1,68 @@
+#calendar{
+    width: 400px;
+    height: 400px;
+    margin: 20px auto;
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 50px;
+    overflow: hidden;
+}
+.calendarHeader{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2{
+        cursor: default;
+    }
+}
+.changeMonthArrow{
+    display: flex;
+    width: 20%;
+    position: relative;
+    justify-content: space-between;
+    padding: 5px;
+
+    img{
+        width: 15px;
+        cursor: pointer;
+    }
+}
+.nextMonth{
+    transform: rotate(180deg);
+}
+.calendarGrid{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+.calendarDayName, .calendarDay, .empty {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+}
+.calendarDayName{
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.301);
+    background-color: #ffffff;
+    cursor: default;
+}
+.calendarDay{
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 50%;
+    border: solid 2px rgba(255, 255, 255, 0);
+    transition: all 0.5s ease;
+  &:hover{
+    border-radius: 50%;
+    border: solid 2px black;
+  }
+}
+.empty {
+    background-color: transparent;
+    border: none;
+  }

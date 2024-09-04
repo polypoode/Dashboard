@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+//PRINCIPAL PARENT
+.createAccount-parent{
+    background-color: var(--primaryColor);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+
+    gap: 40px;
+    @media screen and (max-width: 800px){
+        border: none;
+    }
+    
+}
+.createAccountImage{ 
+    img{
+        width: 25vw;
+        @media screen and (max-width: 800px){
+            width: 250px;
+        }
+    }
+}
+.createAccount-child{
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.inputRequired{
+        width: 100%;
+        height: 30px;
+}
+.createAccount-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+
+    gap: 20px;
+
+        
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--secondaryColor);
+
+}
+//NEUMORPHISME BUTTON
+.neumorphismeButton{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    background-color: var(--primaryColor);
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--secondaryColor);
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+  
+  
+    border: none;
+    outline: none;
+    box-shadow: 
+    2px 2px 3px var(--clearSecondaryColor),
+    -1px -1px 3px var(--whiteSmoke);
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.neumorphismeButton:hover {
+    background-color: var(--primaryColor);
+    -webkit-box-shadow: 
+        0 0 0 var(--clearSecondaryColor), 
+      0 0 0 var(--whiteSmoke), 
+      inset 2px 2px 3px var(--clearSecondaryColor), 
+      inset -2px -2px 3px var(--whiteSmoke);
+            box-shadow: 0 0 0 var(--clearSecondaryColor), 
+      0 0 0 var(--whiteSmoke), 
+      inset 2px 2px 3px var(--clearSecondaryColor), 
+      inset -2px -2px 3px var(--whiteSmoke);
+}
+.neumorphismeButton::placeholder {
+    color: var(--clearSecondaryColor);
+}
+
+
+.createAccount-button{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.buttonPevNex {
+    width: 70px;
+    height: 30px;
+    --offset: 5px;
+    --border-size: 1px;
+    padding: 0;
+    
+    display: block;
+    position: relative;
+
+    border: solid 0px transparent;
+    background: transparent;
+    color: var(--secondaryColor);
+    outline: none;
+    cursor: pointer;
+
+    border-radius: 0;
+    box-shadow: none;
+    transition: all .8s ease;
+    
+    &:hover {
+        background-color: var(--secondaryColor);
+        border: none;
+        color: #ffe6d3;
+        border-radius: 5px;
+    }
+    
+    &__horizontalCreate {
+        position: absolute;
+        top: var(--horizontalCreate-offset, 0);
+        right: var(--verticalCreate-offset, 0);
+        bottom: var(--horizontalCreate-offset, 0);
+        left: var(--verticalCreate-offset, 0);
+        transition: all .8s ease;
+        will-change: transform;
+        
+        &::before {
+            content: '';
+            position: absolute;
+            border: inherit;
+        }
+    }
+    
+    &__horizontalCreate {
+        --verticalCreate-offset: calc(var(--offset) * -1);
+        border-top: var(--border-size) solid currentcolor;
+        border-bottom: var(--border-size) solid currentcolor;
+        
+        &::before {
+            top: calc(var(--verticalCreate-offset) - var(--border-size));
+            bottom: calc(var(--verticalCreate-offset) - var(--border-size));
+            left: calc(var(--verticalCreate-offset) * -1);
+            right: calc(var(--verticalCreate-offset) * -1);
+        }
+    }
+    
+    &:hover &__horizontalCreate {
+        transform: scaleX(0);
+    }
+    
+}
+//PASSWORD AND EMAIL INPUT
+.createAccount-password{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    div{
+        position: relative;
+        width: 47%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    input{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+}
+//ADD PROFILE PICTURE
+.creation-profilePicture{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+   input{
+    display: none;
+   }
+}
+.creation-card{
+display: flex;
+height: 200px;
+border: none;
+gap: 30px;
+}
+.creation-card-child{
+width: 100%;
+height: 200px;
+display: flex;
+position: relative;
+flex-direction: column;
+justify-content: center;
+align-items: center; 
+text-align: center;
+gap: 10px;
+}
+label{
+    width: calc(100% - 10px);
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--primaryColor);
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--secondaryColor);
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+
+  
+    border: none;
+    outline: none;
+    box-shadow: 
+    2px 2px 3px var(--clearSecondaryColor),
+    -1px -1px 3px var(--whiteSmoke);
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background-color: var(--primaryColor);
+        -webkit-box-shadow: 
+            0 0 0 var(--clearSecondaryColor), 
+          0 0 0 var(--whiteSmoke), 
+          inset 2px 2px 3px var(--clearSecondaryColor), 
+          inset -2px -2px 3px var(--whiteSmoke);
+                box-shadow: 0 0 0 var(--clearSecondaryColor), 
+          0 0 0 var(--whiteSmoke), 
+          inset 2px 2px 3px var(--clearSecondaryColor), 
+          inset -2px -2px 3px var(--whiteSmoke);
+    }
+
+}
+.picture{
+    position: relative;
+    border: solid 2px var(--primaryColor);
+    border-radius: 100%;
+    width: 10vw;
+    height: 10vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    overflow: hidden;
+    p{
+        font-size: 5vw;
+    }
+}
+.buttonCard{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background-color:  var(--secondaryColor);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+
+// SUMMARY AND FINITIALISATION
+.createAccount-summary{
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+.createAccount-card{
+    width: 200px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+
+    border: solid 2px var(--secondaryColor);
+    border-radius: 13px;
+    padding: 30px;
+
+    gap: 20px;
+}
+.card-textPicture{
+    width: 120px;
+    height: 120px;
+    position: relative;
+    border: solid 2px var(--secondaryColor);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    overflow: hidden;
+    
+    p{
+        font-size: 50px;
+
+        @media screen and (max-width: 800px){
+            font-size: 50px;
+        }
+    }
+}
+.card-profilePicture{
+    width: 120px;
+    position: absolute;
+    z-index: 1;
+}
+.cardText{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 16px;
+
+    gap: 13px;
+    
+    span{
+        font-size: 11px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.274);
+    }
+}
+
+
+///REQUIRED INFO && ERROR
+.requiredIcon{
+    position: absolute;
+    color: var(--clearSecondaryColor);
+    
+    font-size: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    top: 0px;
+    right: 5px;
+    z-index: 20;
+}
+.requiredInfo-parent{
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    left: 10px;
+    
+}
+.requiredSymbole-child{
+    font-size: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: var(--clearSecondaryColor);
+}
+.requiredInfo-child{
+    position: relative;
+    top: 2px;
+    right: -3px;
+    font-family: "Roboto";
+    font-size: 12px;
+    color: var(--clearSecondaryColor);
+}
+.createAccount-error{
+    width: 90%;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 3px;
+    align-self: center;
+
+    p{
+        width: 100%;
+        display: flex;
+        overflow: hidden;
+        color: rgb(224, 0, 0);
+        font-size: 10px;
+        justify-content: flex-end;
+        font-family: 'Roboto';
+    }
+    
+}
+
+
+
+
+
+
+
+
+
