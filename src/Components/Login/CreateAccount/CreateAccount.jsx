@@ -6,13 +6,16 @@ import './CreateAccount.scss'
 import image from '../../../assets/create-account.png'
 import summaryImage from '../../../assets/summary.png'
 
+import io from 'socket.io-client';
+const socket = io('http://localhost:3001');
+
 
 
 function CreateAccount(props) {
     //-----------------------//
     const navigate = useNavigate(); 
     const [step, setStep] = useState(1);
-    const {setAuth} = props;
+    const {setAuth, setProfile} = props;
 
     const [name, setName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -122,6 +125,45 @@ function CreateAccount(props) {
             setStep(step-1)
         }
     }
+    const handleCreateUser = () => {
+        const reader = new FileReader();
+        reader.readAsDataURL(profileImage);
+        reader.onloadend = () => {
+          
+        const base64Image = reader.result
+
+                const userData = {
+                name,
+                lastName,
+                company,
+                email,
+                password,
+                picture: base64Image
+            };
+
+            setProfile(userData);
+            navigate("/dashboard")
+
+            
+            console.log(userData)
+            
+            socket.emit('createUser', userData, (response) => {
+                console.log("creating user")
+                if (response.status === 'success') {
+                    alert('User created successfully');
+                    setName("");
+                    setLastName("");
+                    setCompany("");
+                    setEmail("");
+                    setPassword("");
+                    setConfirmPassword("");
+                    setProfileImage(null);
+                } else {
+                    alert('Error creating user: ' + response.error.message);
+                }
+            });
+        }
+    };
 
 
     return (
@@ -300,7 +342,7 @@ function CreateAccount(props) {
                         <button className='buttonPevNex' onClick={() => {SubstracOne()}}>Previous
                             <div className="buttonPevNex__horizontalCreate"></div>
                         </button>
-                        <button  className='buttonPevNex' onClick={() => {navigate("/dashboard")}}>Finish
+                        <button  className='buttonPevNex' onClick={() => handleCreateUser()}>Finish
                             <div className="buttonPevNex__horizontalCreate"></div>
                         </button>
                     </div> 

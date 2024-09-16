@@ -39,7 +39,7 @@ function Welcome(props) {
         : auth === "login" ?
             <Auth setProfile={setProfile} profile={profile} setAuth={setAuth}/>
         : auth === "create" ?
-            <CreateAccount setAuth={setAuth}/>
+            <CreateAccount setAuth={setAuth} setProfile={setProfile}/>
         : null
         }
         </div>

@@ -8,6 +8,11 @@ function App() {
   //WITH GOOGLE
   const [profile, setProfile] = useState(null);
 
+  useEffect(() => {
+    console.log(profile)
+  }, [profile])
+  
+
   //CREATE ACCOUNT
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
